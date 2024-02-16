@@ -11,10 +11,10 @@ services:
     expose:
       - "8000"
     depends_on:
-      - rooms_db
+      - blogs_db
       - celery_worker
 
-  rooms_db:
+  blogs_db:
     image: postgres:12.0-alpine
     volumes:
       - pg_data:/var/lib/postgresql/data/
@@ -54,7 +54,7 @@ services:
     env_file:
       - ./.env
     depends_on:
-      - rooms_db
+      - blogs_db
       - redis
 
   celery_beat:
@@ -68,7 +68,7 @@ services:
     env_file:
       - ./.env
     depends_on:
-      - rooms_db
+      - blogs_db
       - redis
 
 volumes:

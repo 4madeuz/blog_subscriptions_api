@@ -1,0 +1,9 @@
+DEBUG=0
+SECRET_KEY=django-insecure-n^(@2&uya#i+*orah7tv%^)96aqa*8x*+nbnxrnhh%ln(9j15k
+ALLOWED_HOSTS=localhost 127.0.0.1 [::1] 127.0.0.1:8000
+POSTGRES_ENGINE=django.db.backends.postgresql
+POSTGRES_DB=blog_database
+POSTGRES_USER=app
+POSTGRES_PASSWORD=123qwe
+POSTGRES_HOST=blogs_db
+POSTGRES_PORT=5432
