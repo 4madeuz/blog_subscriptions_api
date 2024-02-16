@@ -17,6 +17,9 @@ class PostViewSet(viewsets.ModelViewSet):
         else:
             return [IsOwnerOrAdminPermission()]
 
+    def perform_create(self, serializer):
+        serializer.save(blog=self.request.user.blog)
+
 
 class SubscriptionViewSet(viewsets.mixins.CreateModelMixin,
                           viewsets.mixins.DestroyModelMixin,
@@ -24,6 +27,7 @@ class SubscriptionViewSet(viewsets.mixins.CreateModelMixin,
                           viewsets.GenericViewSet):
     queryset = Subscription.objects.all()
     serializer_class = SubscriptionSerializer
+    permission_classes = [IsAuthenticated,]
 
     def get_queryset(self):
         return Subscription.objects.filter(subscriber=self.request.user)
