@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  rooms_app:
+  blog_app:
     build: app
     volumes:
       - static_volume:/opt/app/static
@@ -34,7 +34,7 @@ services:
       - static_volume:/opt/app/static
       - media_volume:/opt/app/media
     depends_on:
-      - rooms_app
+      - blog_app
     ports:
       - "8000:80"
 
