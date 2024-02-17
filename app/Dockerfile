@@ -12,7 +12,6 @@ ENV DJANGO_SETTINGS_MODULE 'app.settings'
 
 RUN apt-get update && apt-get install -y postgresql-client
 
-RUN apt-get install -y wkhtmltopdf
 
 COPY run_uwsgi.sh run_uwsgi.sh
 COPY requirements.txt requirements.txt
@@ -25,14 +24,6 @@ RUN mkdir -p /opt/app/static/ \
 
 COPY . .
 
-RUN chown -R root:root /opt/app/media/ /opt/app/static/ \
-    && chmod -R 755 /opt/app/media/ /opt/app/static/
-
-RUN chmod +x /usr/bin/wkhtmltopdf
-
-RUN chmod -R ugo+w /opt/app/media/
-
-USER root
 
 EXPOSE 8000
 

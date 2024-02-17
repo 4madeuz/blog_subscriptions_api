@@ -95,6 +95,10 @@ USE_TZ = True
 
 USE_X_FORWARDED_HOST = True
 
+CSRF_TRUSTED_ORIGINS = ['https://127.0.0.1:8000']
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 

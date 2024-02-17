@@ -10,7 +10,7 @@ CELERY_TASK_TRACK_STARTED = True
 
 CELERY_BEAT_SCHEDULE = {
     'update-reservation-status': {
-        'task': 'app.tasks',
+        'task': 'app.tasks.send_latest_posts_to_users',
         'schedule': timezone.timedelta(seconds=20),
         'options': {
             'scheduler': 'django_celery_beat.schedulers:DatabaseScheduler'
